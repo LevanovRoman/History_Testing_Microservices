@@ -1,0 +1,41 @@
+CREATE TABLE question
+(
+    id SERIAL PRIMARY KEY,
+    question_title CHARACTER VARYING(300),
+    option1 CHARACTER VARYING(300),
+    option2 CHARACTER VARYING(300),
+    option3 CHARACTER VARYING(300),
+    option4 CHARACTER VARYING(300),
+    right_answer CHARACTER VARYING(30),
+    difficultylevel CHARACTER VARYING(30),
+    category CHARACTER VARYING(30),
+
+);
+
+docker compose up -d
+docker compose down
+
+docker run -v ${PWD}:/var/lib/postgresql/data questions_history
+
+{
+    "questionTitle": "{{$randomFirstName}}",
+    "option1": "1",
+    "option2": "2",
+    "option3": "3",
+    "option4": "4",
+    "rightAnswer": "{{$randomLastName}}",
+    "difficultylevel": "{{$randomLastName}}",
+    "category": "{{$randomLastName}}"
+  }
+
+private String questionTitle;
+    private String option1;
+    private String option2;
+    private String option3;
+    private String option4;
+    private String rightAnswer;
+    private String difficultylevel;
+    private String category;
+
+we can use MappingJacksonValue and SimpleBeanPropertyFilter for dynamic filter
+to Question class for specific api rather than creating new QuizWrapper class

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p class="text-center">Категория</p>
+<th:block th:each="cat : ${categoryList}">
+    <div class="form_radio_btn">
+        <input th:id="${cat.id}" type="radio" name="cat" th:value="${cat.category_title}">
+        <label th:for="${cat.id}" th:text="${cat.category_title}"></label>
+    </div>
+</th:block>
+</body>
+</html>
