@@ -1,0 +1,15 @@
+version: '3'
+services:
+  dbpostgres:
+    image: postgres
+    volumes:
+      - ./securitymicro_db-data:/var/lib/postgresql/data
+    ports:
+      - "5555:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: securitymicro_db
+
+volumes:
+  securitymicro_db-data:
