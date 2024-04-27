@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>History Testing</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container text-center my-5">
+    <h1 class="my-5">WELCOME TO HISTORY TESTING</h1>
+
+    <div class="container">
+        <h2>Welcome, [[${user.getFullname()}]]</h2>
+
+        <span sec:authorize="isAuthenticated">
+        <a th:href="@{/logout}">
+         Logout
+
+        </a>
+
+        </span>
+
+    </div>
+    <img src="/images/bg.png" width="360px" alt="">
+</div>
+<div th:insert="blocks/footer :: footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
