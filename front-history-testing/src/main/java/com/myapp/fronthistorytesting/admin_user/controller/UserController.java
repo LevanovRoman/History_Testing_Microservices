@@ -30,7 +30,7 @@ public class UserController {
     public String saveUser(@ModelAttribute("user") UserDto userDto, Model model){
         userService.save(userDto);
         model.addAttribute("message", "Registered Successfully");
-        return "redirect:/";
+        return "user-new";
     }
 
     @GetMapping("/login")

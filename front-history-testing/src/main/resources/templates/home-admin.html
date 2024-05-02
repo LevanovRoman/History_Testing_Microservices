@@ -7,7 +7,52 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-<header th:insert="blocks/header :: header"></header>
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-lg  navbar-light bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" th:href="@{'/admin-page'}">History Testing</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item mx-5 ">
+                        <a class="nav-link active text-white" aria-current="page" th:href="@{'/admin-page'}">Home</a>
+                    </li>
+                    <li class="nav-item mx-5 ">
+                        <a class="nav-link text-white" th:href="@{'/questions/allQuestions'}">All Questions</a>
+                    </li>
+                    <li class="nav-item mx-5">
+                        <div class="dropdown">
+                            <a class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categories
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <th:block th:each="cat : ${categoryList}">
+                                    <li>
+                                        <a class="dropdown-item text-uppercase" type="button" th:href="@{'/questions/' + ${cat.category_title}}">
+                                            [[${cat.category_title}]]
+                                        </a>
+                                    </li>
+                                </th:block>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item mx-5 ">
+                        <a class="nav-link text-white" th:href="@{'/questions/new'}">Add Question</a>
+                    </li>
+                    <li class="nav-item mx-5 ">
+                        <a class="nav-link text-white" th:href="@{'/questions/generate'}">Generate Questions</a>
+                    </li>
+                    <li class="nav-item mx-5 ">
+                        <a class="nav-link text-white" th:href="@{'/logout'}">Выход</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
 
 <div class="container text-center my-5">
     <h1 class="my-5">WELCOME TO HISTORY TESTING</h1>

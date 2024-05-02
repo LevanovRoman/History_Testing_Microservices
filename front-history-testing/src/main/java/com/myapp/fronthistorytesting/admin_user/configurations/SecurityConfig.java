@@ -35,7 +35,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(request -> request
 //                        .requestMatchers("/", "/registration","/webjars/**").anonymous()
                         .requestMatchers("/","/registration", "/css/**","/webjars/**", "/images/**").permitAll()
-                        .requestMatchers("/admin-page").hasAuthority("ADMIN")
+                        .requestMatchers("/admin-page", "/user-new").hasAuthority("ADMIN")
                         .requestMatchers("/user-new").hasAuthority("USER")
                         .anyRequest().authenticated())
                 .formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login")

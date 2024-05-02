@@ -27,7 +27,7 @@ public class FrontController {
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("categoryList", getCategoryList());
-        return "home";
+        return "home-all";
     }
 
     @GetMapping("/questions/allQuestions")
@@ -87,6 +87,7 @@ public class FrontController {
                 (String) response.getBody().get(8));
         model.addAttribute("question", question);
         model.addAttribute("pageTitle", "Edit Question (ID: " + id + ")");
+        model.addAttribute("categoryList", getCategoryList());
         return "question-form";
     }
 
